@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>JavaScript </title>
+  </head>
+  <body>
+      <h1>JavaScript </h1>
+             
+      <h2>Prime numbers are:</h2><div id="primes" style="color:goldenrod;"></div>
+
+       <h3>Sum of numbers in array:</h3><div id="sum" style="color:blueviolet;"></div>
+
+       <h3>Average value of numbers in array: <div id="average" style="color:red;"></div></h3>
+
+       <h3>Map primes:</h3> <div id="inLineString" style="color:green;"></div>
+       <h3>List of primes:</h3> <div id="output" style="color:pink;"></div>
+      
+
+      <div id="placeholder"></div>
+     
+      <script>
+
+         let primes = [1, 2, 3, 5, 7, 11, 13, 17, 19, 23];
+         document.getElementById("primes").innerHTML = primes;
+         //sum
+         let primesLength=primes.length;
+         let sum = 0;
+         for (let i = 0; i < primes.length; i++) {
+         sum += primes[i]
+         }
+         //sum=100;
+         document.getElementById("sum").innerHTML = sum;
+
+        //average value
+        
+         var average = sum/ primes.length;
+         document.getElementById("average").innerHTML = average;
+
+        //map function
+
+         primes=primes.map( (element) => {
+            return Math.pow(element,3)
+            }
+          );
+          inLineString=primes.join("; ");
+          document.getElementById("inLineString").innerHTML = inLineString;
+        //list
+        
+         let output="<ul>";  
+         for (let i = 0; i < primes.length; i++) {
+          output +="<li>" +primes[i]+"</li>";
+         }
+         output+="</ul>";
+         document.getElementById("output").innerHTML = output;
+
+
+
+        
+
+        
+      </script>  
+  
+  </body>
+</html>

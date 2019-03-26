@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="UTF-8">
+    <title>Javas</title>
+  </head>
+  <body>
+      <h1> Canvas in Java Script</h1>
+      <canvas id="myCanvas" width="600" height="600" style="border: 1px solid #000000"></canvas>
+
+      <script>
+     let c = document.getElementById("myCanvas");
+     let ctx=c.getContext("2d");
+     //Line
+     ctx.moveTo(0, 0);
+     ctx.lineTo(200, 100);
+     ctx.stroke();
+
+     ctx.moveTo(300, 0);
+     ctx.lineTo(0, 300);
+     ctx.stroke();   
+
+     ctx.moveTo(300, 600);
+     ctx.lineTo(0, 300);
+     ctx.stroke();
+
+     ctx.moveTo(300, 0);
+     ctx.lineTo(600, 300);
+     ctx.stroke();
+
+     ctx.moveTo(300, 0);
+     ctx.lineTo(000, 300);
+     ctx.stroke();
+
+
+     //Circle
+     ctx.beginPath();
+     ctx.arc(400, 400, 10, 0, 2 * Math.PI);
+     ctx.fillStyle="red";
+     ctx.fill();
+    
+     ctx.beginPath();
+     ctx.arc(100, 100, 40, 0, 1 * Math.PI);
+     ctx.stroke();
+
+     //Arc
+     
+     ctx.beginPath();
+     ctx.arc(100, 300, 100, 0, 1 * Math.PI);
+     ctx.fillStyle="blue";
+     ctx.fill();
+
+     //Rectangle
+     
+     ctx.beginPath();
+     ctx.rect(20, 20, 150, 100);
+     ctx.fillStyle="green";
+     ctx.fill();
+
+     //text
+     ctx.font="30px Arial";
+    
+     ctx.fillStyle="orange";
+
+     ctx.fillText("IT Obuka", 300, 40);
+    
+        
+      </script>  
+
+     
+
+    
+  
+  </body>
+</html>

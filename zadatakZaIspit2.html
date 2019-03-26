@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>JavaScript </title>
+  </head>
+  <body>
+      <h1>Zadatak 2 </h1>
+              
+
+       <h2>a) Niz: </h2><div id="array" style="color:blueviolet;"></div>
+
+       <h3>b) Sortirani niz po abecedi sa dodatim članom: </h3><div id="output" style="color:red;"></div>
+
+       <h3>c) Numerisana lista sortirana po abecedi bez dodatog člana:</h3> <div id="list" style="color:green;"></div>
+       <h3>d) Zbir svih karaktera niza je: </h3> <div id="sum" style="color:rgb(214, 55, 82);"></div>
+       <h3>e) Lista po broju karaktera članova niza:</h3> <div id="points" style="color:blue;"></div>
+
+     
+     
+      <script>
+
+         let array = ['Lenovo', 'Del', 'Hewlett Packard', 'Apple', 'Asus'];
+        
+         document.getElementById("array").innerHTML = array;
+
+         //dodavanje novog clana niza
+
+          array.push("Sony");
+          array.sort();
+          let output=array.join("; ");
+          document.getElementById("output").innerHTML = output;
+
+          //lista
+         array.pop();
+        
+         let list="<ol type=1>";  
+          for (let i = 0; i < array.length; i++) {
+          list +="<li>"+array[i]+"</li>";
+         }
+         list+="</ol>";
+         document.getElementById("list").innerHTML = list;
+
+         // zbir svih elemenata clanova niza
+         let sum=null;
+           for(let i=0;i<array.length;i++){
+          sum= sum+ array[i].length
+          }
+          document.getElementById('sum').innerHTML=` ${sum}`;
+
+          //sortiranje po rastucemo broju slova clanova 
+
+          let points=null;
+          points=array.sort(function(a, b){return a.length - b.length});
+          points="<ol type=1>";  
+          for (let i = 0; i < array.length; i++) {
+            points +="<li>"+array[i]+"</li>";
+            }
+            points+="</ol>";
+          document.getElementById("points").innerHTML = points;
+
+      </script>  
+  
+  </body>
+</html>

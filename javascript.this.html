@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+ <html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Javascript [this] variable
+
+    </title>
+    
+</head>
+
+<body>
+    <div id="demo"> </div>
+        The content of the document....
+       <script>
+           'use strict' //js directive
+           document.getElementById("demo").innerHTML="Hello Javascript!"
+           console.log(this);
+           this.table="window table";
+           console.log(this.table);
+           console.log(window.table);
+
+           console.log('*********');
+
+
+          /* this.garage={
+               table:"garage table",
+               cleanTable() {
+                   console.log(`cleaning ${this.table}`);
+               }
+    
+           }*/
+           this.garage={
+               table:"garage table",
+               cleanTable(arg) {
+                   console.log(`cleaning ${this.table} with ${arg}`);
+               }
+    
+           }
+
+           this.garage.cleanTable('soap');
+           console.log('*********');
+
+
+
+           let johnsRoom={
+               table:"Johns table",
+               cleanTable() {
+                   console.log(`cleaning ${this.table}`);
+               }
+           }
+
+           let anasRoom={
+               table:"Anas table",
+               //cleanTable() {
+                //   console.log(`cleaning ${this.table}`);
+               //}
+           }
+
+
+           console.log(johnsRoom.table);
+           johnsRoom.cleanTable();
+           this.garage.cleanTable('soap');
+
+
+           const cleanTable=function(arg) {
+                  console.log(`cleaning ${this.table} with ${arg}`);
+           }
+
+           //cleanTable();
+           //call function
+           cleanTable.call(this);
+           cleanTable.call(johnsRoom);
+           cleanTable.call(anasRoom, 'mop');
+           console.log('*****************');
+
+           
+           const cleanTableInner=function(arg) {
+               let that=this;  // I solution
+               //const innerFunction = function(_arg) {}
+              // const innerFunction =function(_arg)  {
+               const innerFunction =(_arg) => {
+                   console.log(`cleaning ${this.table} using ${arg}`);
+                  // console.log(`cleaning ${that.table} using ${arg}`);
+                   //console.log(`cleaning ${this.table} using ${arg}`);
+               }
+               innerFunction(arg);
+               //innerFunction.bind(this)(arg);// II solution
+      
+           }
+
+           console.log("inner function");
+
+           cleanTableInner.call(anasRoom, 'soap');
+
+
+           //OBJECT ORIENTED PROGRAMMING USING CONSTRUCTOR FUNCTION(NAME)
+            /*
+           let createRoom =function(name) {
+                   
+               this.table=`${name}s table`;
+           }
+
+           //prototype function
+           createRoom.prototype.cleanTablePT=function (arg) {
+               console.log(`cleaning ${this.table} using ${arg}`);
+           }
+
+           console.log("object oriented programming");
+
+
+           const jillsRoom = new createRoom ('jill');
+           const dianasRoom = new createRoom ('diana');
+
+           dianasRoom.cleanTablePT('detergent'); //using prototype function
+            */
+
+            //OBJECT ORIENTED PROGRAMMING USING class
+           console.log("object oriented programming with class");
+
+           class createRoom {
+               constructor (name) {
+                   this.table=`${name}s table`
+               }
+               cleanTableCL (arg) {
+                console.log(`cleaning ${this.table} using ${arg}`);
+               }
+           }
+
+            const dianasRoom = new createRoom ('diana');
+            dianasRoom.cleanTableCL('water'); //using class function
+
+
+
+
+
+
+
+
+
+
+
+           </script>
+           
+</body>
+
+</html>

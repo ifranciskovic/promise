@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Title of the document</title>
+  </head>
+  <body>
+      <h1> Java Script clock</h1>
+      <!-- Map je funkcija niza objekta -->
+
+      <script>
+          'use strict' //JS Directive
+           let myVar= setInterval(function() {
+           myTimer();
+           }, 1000);
+
+           function myTimer() {
+               let d = new Date();
+               var options= { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'};
+               console.log(d);
+               document.getElementById("clock").innerHTML = d.toLocaleTimeString('sr', options);
+               //document.getElementById("clock").innerHTML = d.toLocaleTimeString('sr_Latn', options);
+           }
+      
+
+       
+           setInterval(myTimer, 3000); //ako stavimo zagradu, funkcija se odmah izvrsava
+
+      
+        
+      </script>  
+
+      <h2>Simple clock script</h2>
+
+      <div id="clock"></div>
+  
+  </body>
+</html>

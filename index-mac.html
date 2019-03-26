@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>JavaScript myIntervalFunction and Map Function</title>
+  </head>
+  <body>
+      <h1>Map myIntervalFunction and Function in Java Script</h1>
+      <!-- Map je funkcija niza objekta -->
+
+      <div id="map"></div>
+      <button onclick="myMapFunction()">Map it</button>
+
+      <script>
+          'use strict' //JS Directive
+
+        // setInterval(function(){ alert("Hello"); }, 2000);
+
+        let myIntervalFunction = () => {
+            console.log("IT obuka"); //callback funkcija
+        }
+        setInterval(myIntervalFunction, 3000); //ako stavimo zagradu, funkcija se odmah izvrsava
+
+        document.getElementById("map").innerHTML = "Hello JavaScript! Change me by click with map function!";
+        let numbers = [4, 9, 16, 25];
+
+        const myMapFunction = () => {
+            let x = document.getElementById("map")
+            // x.innerHTML = numbers.map(Math.sqrt);
+            // x.innerHTML = numbers.map(element=>element*2);
+            x.innerHTML = numbers.map(element=>{return `<b>${element*3}</b>`});
+        }
+      </script>  
+  
+  </body>
+</html>

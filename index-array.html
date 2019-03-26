@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>JavaScript Array Object</title>
+  </head>
+  <body>
+      <h1>JavaScript Array Object</h1>
+     
+
+     <h3>string</h3>
+
+      <div id="placeholder1"></div>
+      
+      <div id="list"></div>
+      <div id="listsorted"></div>
+      
+      <h3>numbers</h3>
+
+      <div>Najveci broj u nizu:
+        <p id="maxnumber"></p>
+        </div>
+      <div id="placeholder"></div>
+      <script>
+          //string
+          let output="IT obuka"
+          let output1=""
+          let output2=""
+          let output3=""
+
+          var cars = ["Mercedes", "Volvo", "ŠKODA", "Audi", "BMW", "saab"];
+          output1=cars[1];
+          //output1=cars.join(" * ");
+          //output1=cars.join(" <br/> ");
+          cars.push("Ferrari");
+          output1=cars.join(" <br/> ");
+         
+          output1=cars[3];
+          output2="";
+          for (i=0; i<cars.length; i++) {
+              console.log(cars);
+              output2+= cars[i] + "<br/> ";
+          }
+
+          cars.pop();
+          output1=cars.join(" * ");
+
+          cars.sort();
+          output3=cars.join(" * ");
+ 
+          document.getElementById("placeholder1").innerHTML = output1;
+          document.getElementById("list").innerHTML = output2;
+          document.getElementById("listsorted").innerHTML = output3;
+         
+         
+         
+          //numbers
+
+          let numbers=[45, 4, 69, 16, 125];
+          output=Math.max(45, 4, 69, 16, 25);
+          //na nizu se ne moze poyvati math funkcija
+
+
+          output=Math.max(numbers); //izbaci Nan
+
+          let maxnumber=Math.max(...numbers); // ISPRAVNO
+          document.getElementById("maxnumber").innerHTML = maxnumber;
+
+          let maxKey=numbers.indexOf(16);
+          output=maxKey;
+        
+
+          maxKey=numbers.indexOf(Math.max(...numbers));
+          output=maxKey;
+
+          numbers=[ 4, 9, 16, 25];
+          numbers=numbers.map(Math.sqrt);
+          output=numbers.join(" * ");
+
+
+          //react
+          numbers=numbers.map( (element) => {
+            return Math.pow(element,3)
+            }
+          );
+          output=numbers.join(" * ");
+
+
+
+
+
+
+
+
+          document.getElementById("placeholder").innerHTML = output;
+       
+
+        
+      </script>  
+  
+  </body>
+</html>

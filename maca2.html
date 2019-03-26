@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC >
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Javascript canvas</title>
+  </head>
+  <body>
+      <h1> Canvas in Java Script</h1>
+      <canvas id="myCanvas" width="600" height="600" style="border: 1px solid #000000"></canvas>
+
+      <script>
+     let c = document.getElementById("myCanvas");
+     let ctx=c.getContext("2d");
+     
+
+     //Circle
+        function headpoint(xC, yC, R, x) {
+           // return y= yC+Math.sqrt(R*R -(x-xC)*(x-xC))
+           return y= yC-Math.sqrt(R*R -(x-xC)*(x-xC))
+        }
+
+
+     let xC=300; //x koordinata centra glave
+     let yC=300; //y koordinata centra glave
+     
+     let R=180; // poluprecnik glave
+
+     let r=20;  // poluprecnik ociju i nosa
+     let delta= 140;// rastojanje izmedju ociju
+
+// presek usiju i glave
+
+    
+
+
+
+
+     //Glava
+     ctx.beginPath();
+     ctx.arc(xC, yC, R, 0, 2 * Math.PI);
+     ctx.fillStyle="#99999999";
+     ctx.fill(); 
+     
+     //nos
+     ctx.beginPath();
+     ctx.arc(xC, yC, r, 0, 2 * Math.PI);
+     ctx.fillStyle="#333333";
+     ctx.fill();
+     
+
+     //oci
+     ctx.beginPath();
+     ctx.arc((xC - delta/2), (yC - delta/2), r, 0, 2 * Math.PI);
+     ctx.fillStyle="#aaaaaa";
+     ctx.fill();
+     
+    
+    /*
+     ctx.beginPath();
+     ctx.arc((xC + delta/2), (yC - delta/2), r, 0, 2 * Math.PI);
+     ctx.fillStyle="#aaaaaa";
+     ctx.fill();
+     */
+
+     ctx.beginPath();
+     ctx.arc((xC - delta/2), (yC - delta/2), r/5, 0, 2 * Math.PI);
+     ctx.fillStyle="#aaa";
+     ctx.fill();
+     
+
+     //Mouth
+     ctx.beginPath();
+     ctx.arc(xC, (yC+delta/10), R/2, 0, 1 * Math.PI);
+     ctx.stroke();
+     
+     
+     
+     //Brkovi
+     ctx.moveTo((xC -R - delta/2), (yC - delta/2));
+     ctx.lineTo((xC +R + delta/2), (yC + delta/2));
+     ctx.stroke();
+
+
+     ctx.moveTo((xC -R - delta/2), (yC + delta/2));
+     ctx.lineTo((xC +R + delta/2), (yC - delta/2));
+     ctx.stroke();
+
+    // usi
+    //desno
+     ctx.moveTo((xC), (yC -R));
+     ctx.lineTo((xC+delta/2), (yC - R -delta/2));
+     ctx.stroke();
+    //levo
+     ctx.moveTo((xC), (yC -R));
+     ctx.lineTo((xC-delta/2), (yC - R -delta/2));
+     ctx.stroke();
+     
+     //desno
+    let xE=xC+delta;
+    let yE=headpoint(xC, yC, R, xE);
+   
+     ctx.moveTo((xC+delta/2), (yC - R -delta/2));
+     ctx.lineTo(xE, yE);
+     ctx.stroke();
+    //levo
+    xE=xC-delta;
+    yE=headpoint(xC, yC, R, xE);
+   
+     ctx.moveTo((xC-delta/2), (yC - R -delta/2));
+     ctx.lineTo(xE, yE);
+     ctx.stroke();
+
+
+
+
+     
+     //text
+     ctx.font="30px Arial";
+    
+     ctx.fillStyle="green";
+
+     ctx.fillText("Cica maca", 300, 550);
+    
+        
+      </script>  
+
+     
+
+    
+  
+  </body>
+</html>

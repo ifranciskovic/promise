@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="UTF-8">
+    <title>Javas</title>
+  </head>
+  <body>
+      <h1> Canvas in Java Script</h1>
+      <canvas id="myCanvas" width="600" height="600" style="border: 1px solid #000000"></canvas>
+
+      <script>
+     let c = document.getElementById("myCanvas");
+     let ctx=c.getContext("2d");
+     
+
+     //Circle
+
+     let x0=300;
+     let y0=350;
+
+     
+     ctx.beginPath();
+     ctx.arc(300, 350, 200, 0, 2 * Math.PI);
+     ctx.fillStyle="orange";
+     ctx.fill(); 
+     
+     ctx.beginPath();
+     ctx.arc(350, 300, 10, 0, 2 * Math.PI);
+     ctx.fillStyle="black";
+     ctx.fill();
+     
+    
+     ctx.beginPath();
+     ctx.arc(250, 300, 10, 0, 2 * Math.PI);
+     ctx.fillStyle="black";
+     ctx.fill();
+
+
+//Mouth
+     ctx.beginPath();
+     ctx.arc(300, 380, 10, 0, 2 * Math.PI);
+     ctx.fillStyle="black";
+     ctx.fill();
+    
+     ctx.beginPath();
+     ctx.arc(260, 380, 40, 0, 1 * Math.PI);
+     ctx.stroke();
+     
+     ctx.beginPath();
+     ctx.arc(340, 380, 40, 0, 1 * Math.PI);
+     ctx.stroke();
+     
+     
+     ctx.moveTo(50, 430);
+     ctx.lineTo(550, 330);
+     ctx.stroke();
+
+
+     ctx.moveTo(50, 330);
+     ctx.lineTo(550, 430);
+     ctx.stroke();
+
+
+     
+
+     
+     //text
+     ctx.font="30px Arial";
+    
+     ctx.fillStyle="green";
+
+     ctx.fillText("Cica maca", 300, 40);
+    
+        
+      </script>  
+
+     
+
+    
+  
+  </body>
+</html>
